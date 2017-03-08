@@ -1,5 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+	template: __dirname + '/reactApp/index.html',
+	filename: 'index.html',
+	inject: 'body'
+});
 
 module.exports = {
 	entry: './reactApp/app.js',
@@ -18,5 +24,6 @@ module.exports = {
 	stats: {
 		color: true
 	},
-	devtool: 'source-map'
+	devtool: 'source-map',
+	plugins: [HtmlWebpackPluginConfig]
 };
